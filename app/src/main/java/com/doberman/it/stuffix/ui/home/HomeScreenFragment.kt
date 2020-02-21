@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.homescreen
+package com.doberman.it.stuffix.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
