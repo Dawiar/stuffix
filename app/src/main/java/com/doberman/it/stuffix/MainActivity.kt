@@ -2,7 +2,6 @@ package com.doberman.it.stuffix
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
 import com.doberman.it.stuffix.homescreen.HomeScreenFragment
 
 class MainActivity : AppCompatActivity() {
