@@ -5,6 +5,8 @@ import com.doberman.it.stuffix.common.locations.LocationModel
 interface LocationsListRepository {
     suspend fun getLocationsList(): List<Location>
 
+    suspend fun addLocation(location: Location)
+
     interface Location {
         val id: Long
         val title: String
