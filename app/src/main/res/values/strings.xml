@@ -2,4 +2,6 @@
     <string name="app_name">Stuffix</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_nav_title_travels">Travels</string>
+    <string name="home_nav_title_items">Items</string>
 </resources>
