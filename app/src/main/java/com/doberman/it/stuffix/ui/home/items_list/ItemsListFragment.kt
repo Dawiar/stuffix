@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.home.items
+package com.doberman.it.stuffix.ui.home.items_list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

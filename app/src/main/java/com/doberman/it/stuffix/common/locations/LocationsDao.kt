@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.common.model.locations
+package com.doberman.it.stuffix.common.locations
 
 import androidx.room.Dao
 import androidx.room.Entity

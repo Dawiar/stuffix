@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.items_list.ItemsListFragment">
+    tools:context=".ui.home.locations_list.LocationsListFragment">
 
     <TextView
         android:layout_width="match_parent"
