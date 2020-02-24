@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Query
+import com.doberman.it.stuffix.ui.home.locations_list.LocationsListRepository
 
 @Dao
 abstract class LocationsDao {
@@ -15,5 +16,5 @@ abstract class LocationsDao {
         @PrimaryKey override val id: Long,
         override val title: String,
         override val description: String
-    ) : LocationModel
+    ) : LocationsListRepository.Location
 }

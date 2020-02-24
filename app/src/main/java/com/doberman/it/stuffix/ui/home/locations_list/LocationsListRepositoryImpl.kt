@@ -8,9 +8,8 @@ class LocationsListRepositoryImpl(
     private val dao: LocationsDao
 ) : LocationsListRepository {
     override suspend fun getLocationsList(): List<LocationsListRepository.Location> {
-        val locations = withContext(Dispatchers.Default) {
+        return withContext(Dispatchers.Default) {
             dao.all()
         }
-        // return locations
     }
 }
