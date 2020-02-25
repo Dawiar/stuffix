@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.home
+package com.doberman.it.stuffix.ui.home.locations_list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,8 @@ import android.view.ViewGroup
 
 import com.doberman.it.stuffix.R
 
-class HomeScreenFragment : Fragment() {
+class LocationsListFragment : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -17,12 +18,12 @@ class HomeScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home_screen, container, false)
+        return inflater.inflate(R.layout.fragment_locations_list, container, false)
     }
 
     companion object {
-        fun newInstance(): HomeScreenFragment {
-            return HomeScreenFragment()
+        fun newInstance(): LocationsListFragment {
+            return LocationsListFragment()
         }
     }
 }
