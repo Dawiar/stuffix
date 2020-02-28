@@ -16,5 +16,5 @@ abstract class ItemsDao {
         @PrimaryKey override val id: Long,
         override val title: String,
         override val description: String
-    ) : ItemsListRepository.Item
+    ) : ItemsModel
 }

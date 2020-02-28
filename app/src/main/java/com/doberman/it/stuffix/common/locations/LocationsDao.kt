@@ -16,5 +16,5 @@ abstract class LocationsDao {
         @PrimaryKey override val id: Long,
         override val title: String,
         override val description: String
-    ) : LocationsListRepository.Location
+    ) : LocationModel
 }
