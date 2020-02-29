@@ -15,6 +15,7 @@ abstract class ItemsDao {
     class Model(
         @PrimaryKey override val id: Long,
         override val title: String,
-        override val description: String
+        override val description: String,
+        override val address: String
     ) : ItemsModel
 }
