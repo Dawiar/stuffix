@@ -14,4 +14,5 @@ import dagger.Component
 )
 abstract class RepositoryComponent {
     abstract fun locationsList(): LocationsListRepository
+    abstract fun itemsList(): ItemsListRepository
 }

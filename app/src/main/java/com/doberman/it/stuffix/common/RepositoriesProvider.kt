@@ -15,4 +15,11 @@ class RepositoriesProvider {
     ): LocationsListRepository = LocationsListRepositoryImpl(
         dao = dao.locationsList()
     )
+
+    @Provides
+    fun itemsList(
+        dao: DaoProvider
+    ): ItemsListRepository = ItemsListRepositoryImpl(
+        dao = dao.itemsList()
+    )
 }
