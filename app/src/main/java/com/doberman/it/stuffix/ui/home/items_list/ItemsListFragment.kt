@@ -1,5 +1,6 @@
 package com.doberman.it.stuffix.ui.home.items_list
 
+import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,7 +17,7 @@ class ItemsListFragment : Fragment() {
     private val viewModel: ItemsListViewModel by viewModels {
         object: ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-                ItemsListViewModel() as T
+                ItemsListViewModel(TODO()) as T
         }
     }
 
