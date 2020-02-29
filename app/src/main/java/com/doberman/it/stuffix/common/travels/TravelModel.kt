@@ -16,3 +16,7 @@ interface TravelModel {
     val stuffSetId: Long
     val status: Unit // TODO
 }
+
+enum class TravelStatus{
+    PLANNED()
+}
