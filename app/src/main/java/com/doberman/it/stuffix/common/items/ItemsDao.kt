@@ -5,13 +5,13 @@ import com.doberman.it.stuffix.ui.home.items_list.ItemsListRepository
 
 @Dao
 abstract class ItemsDao {
-    @Query("SELECT * FROM Model")
+    @Query("SELECT * FROM items")
     abstract suspend fun all(): List<Model>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun add(location: Model)
 
-    @Entity
+    @Entity(tableName = "items")
     class Model(
         @PrimaryKey override val id: Long,
         override val title: String,
