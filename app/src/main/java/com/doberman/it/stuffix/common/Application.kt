@@ -33,14 +33,14 @@ class Application : Application() {
         val repo : LocationsListRepository = repositories.locationsList()
         val rep1 : ItemsListRepository = repositories.itemsList()
         val locationsDeff : Deferred<List<LocationModel>> = GlobalScope.async {
-            repo.addLocation(LocationsDao.Model(1, "Home", "Home, sweet home","Lenina st. 23"))
-            repo.addLocation(LocationsDao.Model(2, "Obshaga", "Not so sweet, but still","Turgenevsky 44"))
+            repo.addLocation(LocationsDao.Model(1, "abc", "def","123"))
+            repo.addLocation(LocationsDao.Model(2, "def", "ghj","456"))
             repo.getLocationsList()
         }
 
         val itemsDeff : Deferred<List<ItemsModel>> = GlobalScope.async {
-            rep1.addItem(ItemsDao.Model(1,"Phone","Mobile",""))
-            rep1.addItem(ItemsDao.Model(2,"Notebook","",""))
+            rep1.addItem(ItemsDao.Model(1,"abc","def","123"))
+            rep1.addItem(ItemsDao.Model(2, "def", "ghj","456"))
             rep1.getItemsList()
         }
         runBlocking {
