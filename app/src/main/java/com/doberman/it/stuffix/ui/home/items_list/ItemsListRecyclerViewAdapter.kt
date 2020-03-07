@@ -25,8 +25,9 @@ class ItemsListRecyclerViewAdapter: RecyclerView.Adapter<ItemsListRecyclerViewAd
         holder.bind(items[position])
     }
 
-    fun setItems(ite: List<ItemsModel>){
-        items = ite
+    fun setItems(items: List<ItemsModel>){
+        this.items = items
+        notifyDataSetChanged()
     }
 
     class ItemsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

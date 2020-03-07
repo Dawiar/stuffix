@@ -5,7 +5,7 @@ import com.doberman.it.stuffix.ui.home.locations_list.LocationsListRepository
 
 @Dao
 abstract class LocationsDao {
-    @Query("SELECT * FROM items")
+    @Query("SELECT * FROM locations")
     abstract suspend fun all(): List<Model>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
