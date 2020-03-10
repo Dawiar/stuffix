@@ -17,6 +17,13 @@ class LocationsListViewModel(
         }
     val locations: LiveData<List<LocationModel>> = MutableLiveData()
 
+    private var _isLoading = true
+        set(value) {
+            field = value
+            (isLoading as MutableLiveData).postValue(value)
+        }
+    val isLoading: LiveData<Boolean> = MutableLiveData(_isLoading)
+
     init {
         viewModelScope.launch {
             val locations: List<LocationModel>? = try {
@@ -25,6 +32,7 @@ class LocationsListViewModel(
                 print(t)
                 null
             }
+            _isLoading = false
             locations?.let { _locations = it }
         }
     }

@@ -12,7 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doberman.it.stuffix.R
 import com.doberman.it.stuffix.common.items.ItemsModel
+import com.doberman.it.stuffix.databinding.FragmentItemsListBinding
+import com.doberman.it.stuffix.databinding.FragmentLocationsListBinding
 import kotlinx.android.synthetic.main.fragment_items_list.*
+import okhttp3.internal.notify
 
 class ItemsListFragment : Fragment() {
 
@@ -25,12 +28,14 @@ class ItemsListFragment : Fragment() {
         }
     }
 
+    private lateinit var dataBinding: FragmentItemsListBinding
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        itemsList_recyclerView.layoutManager = LinearLayoutManager(context)
+        dataBinding.itemsListRecyclerView.layoutManager = LinearLayoutManager(context)
         adapter = ItemsListRecyclerViewAdapter()
-        itemsList_recyclerView.adapter = adapter
+        dataBinding.itemsListRecyclerView.adapter = adapter
         viewModel.items.observe(viewLifecycleOwner, Observer<List<ItemsModel>> { itemsList ->
             adapter.setItems(itemsList)
         })
@@ -40,7 +45,8 @@ class ItemsListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_items_list, container, false)
+        dataBinding = FragmentItemsListBinding.inflate(inflater, container, false)
+        return dataBinding.root
     }
 
     companion object {

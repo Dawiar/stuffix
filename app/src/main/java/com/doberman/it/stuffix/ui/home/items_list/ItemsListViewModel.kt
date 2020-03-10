@@ -17,6 +17,13 @@ class ItemsListViewModel(
         }
     val items: LiveData<List<ItemsModel>> = MutableLiveData()
 
+    private var _isLoading = true
+        set(value) {
+            field = value
+            (isLoading as MutableLiveData).postValue(value)
+        }
+    val isLoading: LiveData<Boolean> = MutableLiveData(_isLoading)
+
     init {
         viewModelScope.launch {
             val items: List<ItemsModel>? = try {
@@ -25,6 +32,7 @@ class ItemsListViewModel(
                 print(t)
                 null
             }
+            _isLoading = false
             items?.let { _items = it }
         }
     }

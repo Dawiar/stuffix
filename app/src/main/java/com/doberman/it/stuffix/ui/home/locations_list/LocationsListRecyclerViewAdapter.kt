@@ -26,6 +26,7 @@ class LocationsListRecyclerViewAdapter: RecyclerView.Adapter<LocationsListRecycl
 
     fun setLocations(loc: List<LocationModel>){
         locations = loc
+        notifyDataSetChanged()
     }
 
     class LocationsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
