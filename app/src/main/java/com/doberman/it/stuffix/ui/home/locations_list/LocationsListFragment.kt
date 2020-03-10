@@ -11,12 +11,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.doberman.it.stuffix.R
 import com.doberman.it.stuffix.common.Application
 import com.doberman.it.stuffix.common.locations.LocationModel
 import com.doberman.it.stuffix.databinding.FragmentLocationsListBinding
+import com.doberman.it.stuffix.ui.home.items_list.ItemsListFragmentDirections
 import com.doberman.it.stuffix.ui.home.items_list.ItemsListViewModel
 import kotlinx.android.synthetic.main.fragment_locations_list.*
 
@@ -52,6 +54,13 @@ class LocationsListFragment : Fragment() {
         viewModel.locations.observe(viewLifecycleOwner, Observer<List<LocationModel>>{ locationsList ->
             adapter.setLocations(locationsList)
         })
+
+
+        dataBinding.locationsListFabAdd.setOnClickListener{
+            val action = LocationsListFragmentDirections.actionNavigationLocationsToAddLocationFragment()
+            this.findNavController().navigate(action)
+        }
+
     }
 
     companion object {
