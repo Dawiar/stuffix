@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doberman.it.stuffix.R
 import com.doberman.it.stuffix.common.items.ItemsModel
@@ -39,6 +40,11 @@ class ItemsListFragment : Fragment() {
         viewModel.items.observe(viewLifecycleOwner, Observer<List<ItemsModel>> { itemsList ->
             adapter.setItems(itemsList)
         })
+
+        dataBinding.itemsListFabAdd.setOnClickListener{
+            val action = ItemsListFragmentDirections.actionNavigationItemsToAddItemFragment()
+            this.findNavController().navigate(action)
+        }
     }
 
     override fun onCreateView(
