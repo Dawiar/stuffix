@@ -1,18 +1,17 @@
 package com.doberman.it.stuffix.common.locations
 
 import androidx.room.*
-import com.doberman.it.stuffix.ui.home.locations_list.LocationsListRepository
 
 @Dao
 abstract class LocationsDao {
-    @Query("SELECT * FROM locations")
-    abstract suspend fun all(): List<Model>
+    @Query("SELECT * FROM LocationsModel")
+    abstract suspend fun all(): List<LocationsModel>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract suspend fun add(location: Model)
+    abstract suspend fun add(location: LocationsModel)
 
-    @Entity(tableName = "locations")
-    class Model(
+    @Entity
+    class LocationsModel(
         @PrimaryKey override val id: Long,
         override val title: String,
         override val description: String,

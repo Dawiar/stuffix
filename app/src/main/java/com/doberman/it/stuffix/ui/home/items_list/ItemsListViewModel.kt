@@ -4,18 +4,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.doberman.it.stuffix.common.items.ItemsModel
+import com.doberman.it.stuffix.common.items.Item
 import kotlinx.coroutines.launch
 
 class ItemsListViewModel(
     private val repository: ItemsListRepository
 ) : ViewModel() {
-    private var _items: List<ItemsModel>? = null
+    private var _items: List<Item>? = null
         set(value) {
             field = value
             (items as MutableLiveData).postValue(value)
         }
-    val items: LiveData<List<ItemsModel>> = MutableLiveData()
+    val items: LiveData<List<Item>> = MutableLiveData()
 
     private var _isLoading = true
         set(value) {
@@ -26,7 +26,7 @@ class ItemsListViewModel(
 
     init {
         viewModelScope.launch {
-            val items: List<ItemsModel>? = try {
+            val items: List<Item>? = try {
                 repository.getItemsList()
             } catch (t: Throwable) {
                 print(t)
