@@ -35,8 +35,8 @@
         app:backgroundTint="@color/fab"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="@dimen/fab_margin_right"
-        android:layout_marginBottom="@dimen/fab_margin_bottom"/>
+        android:layout_marginEnd="@dimen/fab_margin_right"
+        android:layout_marginBottom="@dimen/fab_margin_bottom" />
 
     <ProgressBar
         android:id="@+id/itemsList_progressBar"
