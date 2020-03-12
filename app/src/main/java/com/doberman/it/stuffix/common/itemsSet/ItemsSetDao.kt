@@ -8,7 +8,7 @@ import java.util.*
 @Dao
 class ItemsSetDao {
     @Entity
-    class ItemsSetDaoModel(
+    class ItemsSetModel(
         @PrimaryKey override val id: Long,
         override val name: String,
         override val creationDate: Date

@@ -7,14 +7,14 @@ import java.util.*
 @Dao
 abstract class TravelsDao {
     @Query("SELECT * FROM ItemsSetModel")
-    abstract suspend fun all(): List<TravelsDaoModel>
+    abstract suspend fun all(): List<TravelsModel>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract suspend fun add(location: TravelsDaoModel)
+    abstract suspend fun add(location: TravelsModel)
 
     @Entity
     @TypeConverters(TravelStatusTypeConverter::class)
-    class TravelsDaoModel(
+    class TravelsModel(
         @PrimaryKey override val id: Long,
         override val title: String,
         override val plannedDispatchDate: Date,
@@ -26,5 +26,5 @@ abstract class TravelsDao {
         override val note: String,
         override val stuffSetId: Long,
         override val status: TravelStatus
-    ) : TravelModel
+    ) : Travel
 }

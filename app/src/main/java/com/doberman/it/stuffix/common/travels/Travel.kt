@@ -3,7 +3,7 @@ package com.doberman.it.stuffix.common.travels
 import com.doberman.it.stuffix.common.locations.LocationModel
 import java.util.*
 
-interface TravelModel {
+interface Travel {
     val id: Long
     val title: String
     val plannedDispatchDate: Date

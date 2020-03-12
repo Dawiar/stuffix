@@ -4,14 +4,14 @@ import androidx.room.*
 
 @Dao
 abstract class LocationsDao {
-    @Query("SELECT * FROM LocationsDaoModel")
-    abstract suspend fun all(): List<LocationsDaoModel>
+    @Query("SELECT * FROM LocationsModel")
+    abstract suspend fun all(): List<LocationsModel>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract suspend fun add(location: LocationsDaoModel)
+    abstract suspend fun add(location: LocationsModel)
 
     @Entity
-    class LocationsDaoModel(
+    class LocationsModel(
         @PrimaryKey override val id: Long,
         override val title: String,
         override val description: String

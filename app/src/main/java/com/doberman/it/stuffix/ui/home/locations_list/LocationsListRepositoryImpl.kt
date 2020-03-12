@@ -10,7 +10,7 @@ class LocationsListRepositoryImpl(
 ) : LocationsListRepository {
     override suspend fun addLocation(location: LocationModel) {
         return withContext(Dispatchers.Default) {
-            dao.add(location as LocationsDao.LocationsDaoModel)
+            dao.add(location as LocationsDao.LocationsModel)
         }
     }
 

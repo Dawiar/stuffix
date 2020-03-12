@@ -12,12 +12,12 @@ import com.doberman.it.stuffix.common.travels.TravelsDao
 
 @Database(
     entities = [
-        ItemCategoriesDao.ItemCategoriesDaoModel::class,
-        ItemsDao.ItemsDaoModel::class,
-        ItemTransactionsDao.ItemTransactionDaoModel::class,
-        LocationsDao.LocationsDaoModel::class,
-        ItemsSetDao.ItemsSetDaoModel::class,
-        TravelsDao.TravelsDaoModel::class
+        ItemCategoriesDao.ItemCategoriesModel::class,
+        ItemsDao.ItemsModel::class,
+        ItemTransactionsDao.ItemTransactionModel::class,
+        LocationsDao.LocationsModel::class,
+        ItemsSetDao.ItemsSetModel::class,
+        TravelsDao.TravelsModel::class
     ],
     version = 1
 )

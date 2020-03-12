@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Dao
 abstract class ItemTransactionsDao {
     @Entity
-    class ItemTransactionDaoModel(
+    class ItemTransactionModel(
         @PrimaryKey override val id: Long,
         override val itemId: Long,
         override val travelId: Long,
