@@ -1,11 +1,10 @@
 package com.doberman.it.stuffix.ui.home.travels_list
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
 import com.doberman.it.stuffix.R
 
 class TravelsListFragment : Fragment() {

@@ -5,4 +5,5 @@ interface ItemsModel {
     val title: String
     val description: String
     val locationId: Long
+    val address: String
 }

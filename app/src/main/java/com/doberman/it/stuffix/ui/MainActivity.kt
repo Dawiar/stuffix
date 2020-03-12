@@ -18,14 +18,5 @@ class MainActivity : AppCompatActivity() {
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         bottom_nav.setupWithNavController(navController)
-
-
-
-       /* if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.rootFragmentContainer, HomeScreenFragment.newInstance())
-                .commit()
-        }*/
     }
 }

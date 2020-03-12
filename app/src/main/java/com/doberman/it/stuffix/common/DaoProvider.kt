@@ -6,8 +6,8 @@ import androidx.room.TypeConverters
 import com.doberman.it.stuffix.common.itemCategories.ItemCategoriesDao
 import com.doberman.it.stuffix.common.itemTransactions.ItemTransactionsDao
 import com.doberman.it.stuffix.common.items.ItemsDao
-import com.doberman.it.stuffix.common.locations.LocationsDao
 import com.doberman.it.stuffix.common.itemsSet.ItemsSetDao
+import com.doberman.it.stuffix.common.locations.LocationsDao
 import com.doberman.it.stuffix.common.travels.TravelsDao
 
 @Database(
@@ -24,4 +24,5 @@ import com.doberman.it.stuffix.common.travels.TravelsDao
 @TypeConverters(RoomDateTypeConverter::class)
 abstract class DaoProvider : RoomDatabase() {
     abstract fun locationsList(): LocationsDao
+    abstract fun itemsList(): ItemsDao
 }
