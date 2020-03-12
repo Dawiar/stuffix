@@ -1,20 +1,20 @@
 package com.doberman.it.stuffix.common.items
 
 import androidx.room.*
-import com.doberman.it.stuffix.ui.home.items_list.ItemsListRepository
 
 @Dao
 abstract class ItemsDao {
-    @Query("SELECT * FROM Model")
-    abstract suspend fun all(): List<Model>
+    @Query("SELECT * FROM ItemsDaoModel")
+    abstract suspend fun all(): List<ItemsDaoModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract suspend fun add(location: Model)
+    abstract suspend fun add(location: ItemsDaoModel)
 
     @Entity
-    class Model(
+    class ItemsDaoModel(
         @PrimaryKey override val id: Long,
         override val title: String,
-        override val description: String
-    ) : ItemsModel
+        override val description: String,
+        override val locationId: Long
+    ) : com.doberman.it.stuffix.common.items.ItemsModel
 }

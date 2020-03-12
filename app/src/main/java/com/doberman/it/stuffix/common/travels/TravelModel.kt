@@ -10,13 +10,16 @@ interface TravelModel {
     val plannedArriveDate: Date
     val dispatchDate: Date
     val arriveDate: Date
-    val startPoint: LocationModel
-    val destinationPoint: LocationModel
+    val startPointId: Long
+    val destinationPointId: Long
     val note: String
     val stuffSetId: Long
-    val status: Unit // TODO
+    val status: TravelStatus
 }
 
-enum class TravelStatus{
-    PLANNED()
+enum class TravelStatus(val code: Int){
+    PLANNED(0),
+    ACTIVE(1),
+    FINISHED(2),
+    CANCELED(3),
 }

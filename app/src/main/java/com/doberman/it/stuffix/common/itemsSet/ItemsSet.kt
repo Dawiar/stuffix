@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.common.stuffSet
+package com.doberman.it.stuffix.common.itemsSet
 
 import java.util.*
 

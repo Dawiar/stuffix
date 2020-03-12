@@ -10,7 +10,7 @@ class ItemsListRepositoryImpl(
 ) : ItemsListRepository {
     override suspend fun addItem(item: ItemsModel) {
         return withContext(Dispatchers.Default) {
-            dao.add(item as ItemsDao.Model)
+            dao.add(item as ItemsDao.ItemsDaoModel)
         }
     }
 
