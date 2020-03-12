@@ -1,11 +1,11 @@
 package com.doberman.it.stuffix.ui.add.item
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.doberman.it.stuffix.R
 
 class AddItemFragment : Fragment() {
@@ -28,5 +28,4 @@ class AddItemFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(AddItemViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

@@ -4,6 +4,6 @@ import androidx.lifecycle.ViewModel
 
 class TravelsListViewModel(
 
-) : ViewModel (){
+) : ViewModel() {
     // TODO: Implement the ViewModel
 }

@@ -11,12 +11,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.doberman.it.stuffix.R
 import com.doberman.it.stuffix.common.items.ItemsModel
 import com.doberman.it.stuffix.databinding.FragmentItemsListBinding
-import com.doberman.it.stuffix.databinding.FragmentLocationsListBinding
-import kotlinx.android.synthetic.main.fragment_items_list.*
-import okhttp3.internal.notify
 
 class ItemsListFragment : Fragment() {
 
@@ -41,7 +37,7 @@ class ItemsListFragment : Fragment() {
             adapter.setItems(itemsList)
         })
 
-        dataBinding.itemsListFabAdd.setOnClickListener{
+        dataBinding.itemsListFabAdd.setOnClickListener {
             val action = ItemsListFragmentDirections.actionNavigationItemsToAddItemFragment()
             this.findNavController().navigate(action)
         }

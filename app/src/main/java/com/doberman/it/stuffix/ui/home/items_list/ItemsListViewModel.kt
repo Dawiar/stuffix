@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class ItemsListViewModel(
     private val repository: ItemsListRepository
 ) : ViewModel() {
-    private var _items: List<ItemsModel>?  = null
+    private var _items: List<ItemsModel>? = null
         set(value) {
             field = value
             (items as MutableLiveData).postValue(value)

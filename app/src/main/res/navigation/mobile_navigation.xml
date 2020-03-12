@@ -23,19 +23,11 @@
         android:id="@+id/navigation_locations"
         android:name="com.doberman.it.stuffix.ui.home.locations_list.LocationsListFragment"
         android:label="@string/home_nav_title_locations"
-        tools:layout="@layout/fragment_locations_list">
-        <action
-            android:id="@+id/action_navigation_locations_to_addLocationFragment"
-            app:destination="@id/addLocationFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_locations_list"/>
     <fragment
         android:id="@+id/addItemFragment"
         android:name="com.doberman.it.stuffix.ui.add.item.AddItemFragment"
         android:label="add_item_fragment"
         tools:layout="@layout/add_item_fragment" />
-    <fragment
-        android:id="@+id/addLocationFragment"
-        android:name="com.doberman.it.stuffix.ui.add.location.AddLocationFragment"
-        android:label="AddLocationFragment" />
 
 </navigation>

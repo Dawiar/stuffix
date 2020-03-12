@@ -7,15 +7,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.doberman.it.stuffix.R
 import com.doberman.it.stuffix.common.items.ItemsModel
-import com.doberman.it.stuffix.common.locations.LocationModel
-import kotlinx.android.synthetic.main.fragment_locations_item.*
 
-class ItemsListRecyclerViewAdapter: RecyclerView.Adapter<ItemsListRecyclerViewAdapter.ItemsViewHolder>() {
+class ItemsListRecyclerViewAdapter :
+    RecyclerView.Adapter<ItemsListRecyclerViewAdapter.ItemsViewHolder>() {
 
     private var items: List<ItemsModel> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_locations_item, parent,false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.fragment_locations_item, parent, false)
         return ItemsViewHolder(view)
     }
 
@@ -25,17 +25,17 @@ class ItemsListRecyclerViewAdapter: RecyclerView.Adapter<ItemsListRecyclerViewAd
         holder.bind(items[position])
     }
 
-    fun setItems(items: List<ItemsModel>){
+    fun setItems(items: List<ItemsModel>) {
         this.items = items
         notifyDataSetChanged()
     }
 
-    class ItemsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ItemsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.locationsList_item_title)
         val description: TextView = itemView.findViewById(R.id.locationsList_item_description)
         val address: TextView = itemView.findViewById(R.id.locationsList_item_address)
 
-        fun bind(item: ItemsModel){
+        fun bind(item: ItemsModel) {
             title.text = item.title
             description.text = item.description
             address.text = item.address
