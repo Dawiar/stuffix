@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.doberman.it.stuffix.common.items.ItemsModel
+import com.doberman.it.stuffix.common.items.Item
 import com.doberman.it.stuffix.databinding.FragmentItemsListBinding
 
 class ItemsListFragment : Fragment() {
@@ -33,7 +33,7 @@ class ItemsListFragment : Fragment() {
         dataBinding.itemsListRecyclerView.layoutManager = LinearLayoutManager(context)
         adapter = ItemsListRecyclerViewAdapter()
         dataBinding.itemsListRecyclerView.adapter = adapter
-        viewModel.items.observe(viewLifecycleOwner, Observer<List<ItemsModel>> { itemsList ->
+        viewModel.items.observe(viewLifecycleOwner, Observer<List<Item>> { itemsList ->
             adapter.setItems(itemsList)
         })
 

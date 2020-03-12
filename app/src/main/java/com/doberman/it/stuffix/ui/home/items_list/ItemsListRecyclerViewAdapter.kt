@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.doberman.it.stuffix.R
-import com.doberman.it.stuffix.common.items.ItemsModel
+import com.doberman.it.stuffix.common.items.Item
 
 class ItemsListRecyclerViewAdapter :
     RecyclerView.Adapter<ItemsListRecyclerViewAdapter.ItemsViewHolder>() {
 
-    private var items: List<ItemsModel> = listOf()
+    private var items: List<Item> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -25,7 +25,7 @@ class ItemsListRecyclerViewAdapter :
         holder.bind(items[position])
     }
 
-    fun setItems(items: List<ItemsModel>) {
+    fun setItems(items: List<Item>) {
         this.items = items
         notifyDataSetChanged()
     }
@@ -35,7 +35,7 @@ class ItemsListRecyclerViewAdapter :
         val description: TextView = itemView.findViewById(R.id.locationsList_item_description)
         val address: TextView = itemView.findViewById(R.id.locationsList_item_address)
 
-        fun bind(item: ItemsModel) {
+        fun bind(item: Item) {
             title.text = item.title
             description.text = item.description
             address.text = item.address

@@ -1,6 +1,6 @@
 package com.doberman.it.stuffix.common.items
 
-interface ItemsModel {
+interface Item {
     val id: Long
     val title: String
     val description: String

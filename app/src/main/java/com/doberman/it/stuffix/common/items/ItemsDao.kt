@@ -15,6 +15,7 @@ abstract class ItemsDao {
         @PrimaryKey override val id: Long,
         override val title: String,
         override val description: String,
-        override val locationId: Long
-    ) : com.doberman.it.stuffix.common.items.ItemsModel
+        override val locationId: Long,
+        override val address: String
+    ) : Item
 }
