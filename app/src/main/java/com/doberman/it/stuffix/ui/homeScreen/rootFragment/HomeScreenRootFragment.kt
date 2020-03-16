@@ -6,12 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
-import com.doberman.it.stuffix.R
 import com.doberman.it.stuffix.databinding.FragmentHomescreenRootBinding
-import com.doberman.it.stuffix.databinding.FragmentItemsListBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeScreenRootFragment : Fragment() {
     lateinit var navController: NavController
@@ -25,9 +22,10 @@ class HomeScreenRootFragment : Fragment() {
         return dataBinding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        navController = findNavController()
+    override fun onStart() {
+        super.onStart()
+        val navHost = dataBinding.homeNavHostFragment
+        navController = Navigation.findNavController(navHost)
         dataBinding.bottomNav.setupWithNavController(navController)
     }
 }
