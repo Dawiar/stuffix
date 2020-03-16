@@ -5,4 +5,5 @@
     <string name="home_nav_title_travels">Travels</string>
     <string name="home_nav_title_items">Items</string>
     <string name="home_nav_title_locations">Locations</string>
+    <string name="home_nav_title_home">Home Screen</string>
 </resources>

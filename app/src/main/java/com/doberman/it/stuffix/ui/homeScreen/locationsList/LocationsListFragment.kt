@@ -53,7 +53,6 @@ class LocationsListFragment : Fragment() {
         dataBinding.locationsListFabAdd.setOnClickListener {
 
         }
-
     }
 
     companion object {
