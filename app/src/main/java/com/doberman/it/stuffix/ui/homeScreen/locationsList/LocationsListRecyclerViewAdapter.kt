@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.home.locations_list
+package com.doberman.it.stuffix.ui.homeScreen.locationsList
 
 import android.view.LayoutInflater
 import android.view.View

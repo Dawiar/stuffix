@@ -9,14 +9,14 @@
 
         <variable
             name="viewModel"
-            type="com.doberman.it.stuffix.ui.home.locations_list.LocationsListViewModel" />
+            type="com.doberman.it.stuffix.ui.homeScreen.locationsList.LocationsListViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.travels_list.TravelsListFragment">
+        tools:context=".ui.homeScreen.travelsList.TravelsListFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/locationsList_recyclerView"

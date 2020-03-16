@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.home.items_list
+package com.doberman.it.stuffix.ui.homeScreen.itemsList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -10,13 +10,13 @@
 
         <variable
             name="viewModel"
-            type="com.doberman.it.stuffix.ui.home.items_list.ItemsListViewModel" />
+            type="com.doberman.it.stuffix.ui.homeScreen.itemsList.ItemsListViewModel" />
 
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    tools:context=".ui.home.travels_list.TravelsListFragment"
+    tools:context=".ui.homeScreen.travelsList.TravelsListFragment"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView

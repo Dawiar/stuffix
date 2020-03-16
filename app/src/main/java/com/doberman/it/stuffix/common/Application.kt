@@ -6,8 +6,8 @@ import com.doberman.it.stuffix.common.items.Item
 import com.doberman.it.stuffix.common.items.ItemsDao
 import com.doberman.it.stuffix.common.locations.LocationModel
 import com.doberman.it.stuffix.common.locations.LocationsDao
-import com.doberman.it.stuffix.ui.home.items_list.ItemsListRepository
-import com.doberman.it.stuffix.ui.home.locations_list.LocationsListRepository
+import com.doberman.it.stuffix.ui.homeScreen.itemsList.ItemsListRepository
+import com.doberman.it.stuffix.ui.homeScreen.locationsList.LocationsListRepository
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
