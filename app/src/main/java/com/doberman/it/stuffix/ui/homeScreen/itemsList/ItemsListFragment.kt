@@ -50,8 +50,4 @@ class ItemsListFragment : Fragment() {
         dataBinding = FragmentItemsListBinding.inflate(inflater, container, false)
         return dataBinding.root
     }
-
-    companion object {
-        fun newInstance() = ItemsListFragment()
-    }
 }

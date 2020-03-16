@@ -7,21 +7,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.doberman.it.stuffix.R
+import com.doberman.it.stuffix.databinding.FragmentHomescreenRootBinding
+import com.doberman.it.stuffix.databinding.FragmentItemsListBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeScreenRootFragment : Fragment() {
     lateinit var navController: NavController
+    private lateinit var dataBinding: FragmentHomescreenRootBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_homescreen_root, container, false)
+        dataBinding = FragmentHomescreenRootBinding.inflate(inflater, container, false)
+        return dataBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
-        val bottomNav = view.findViewById<BottomNavigationView>(R.id.bottom_nav)
-        NavigationUI.setupWithNavController(bottomNav, navController)
-        return view
+        dataBinding.bottomNav.setupWithNavController(navController)
     }
 }
