@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_travels"
+        android:id="@+id/navigation_fragment_travels"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/home_nav_title_travels" />
 
     <item
-        android:id="@+id/navigation_items"
+        android:id="@+id/navigation_fragment_items"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/home_nav_title_items" />
 
     <item
-        android:id="@+id/navigation_locations"
+        android:id="@+id/navigation_fragment_locations"
         android:icon="@drawable/ic_location_city_24"
         android:title="@string/home_nav_title_locations" />
 </menu>

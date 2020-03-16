@@ -5,5 +5,8 @@
     <string name="home_nav_title_travels">Travels</string>
     <string name="home_nav_title_items">Items</string>
     <string name="home_nav_title_locations">Locations</string>
-    <string name="home_nav_title_home">Home Screen</string>
+    <string name="root_nav_title_home">Home Screen</string>
+    <string name="root_nav_title_add_item">Add item fragment</string>
+    <string name="text_create_an_account">Create an account</string>
+    <string name="root_nav_title_sign_up">Sign Up</string>
 </resources>

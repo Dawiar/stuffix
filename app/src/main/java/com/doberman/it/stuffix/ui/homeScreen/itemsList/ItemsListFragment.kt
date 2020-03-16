@@ -9,14 +9,19 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.doberman.it.stuffix.R
 import com.doberman.it.stuffix.common.items.Item
 import com.doberman.it.stuffix.databinding.FragmentItemsListBinding
+import com.doberman.it.stuffix.ui.homeScreen.rootFragment.HomeScreenRootFragmentDirections
 
 class ItemsListFragment : Fragment() {
 
     private lateinit var adapter: ItemsListRecyclerViewAdapter
+
+    private val rootNavController: NavController? by lazy { activity?.findNavController(R.id.nav_host_fragment) }
 
     private val viewModel: ItemsListViewModel by viewModels {
         object : ViewModelProvider.Factory {
@@ -38,8 +43,8 @@ class ItemsListFragment : Fragment() {
         })
 
         dataBinding.itemsListFabAdd.setOnClickListener {
-            val action = ItemsListFragmentDirections.actionNavigationItemsToAddItemFragment()
-            this.findNavController().navigate(action)
+            val action = HomeScreenRootFragmentDirections.actionNavigationItemsToAddItemFragment()
+            rootNavController?.navigate(action)
         }
     }
 

@@ -2,14 +2,25 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_navigation"
-    app:startDestination="@+id/navigation_home_screen">
+    android:id="@+id/root_navigation_graph"
+    app:startDestination="@+id/auth_navigation_graph">
 
+    <include app:graph="@navigation/auth_navigation" />
 
     <fragment
-        android:id="@+id/navigation_home_screen"
+        android:id="@+id/navigation_fragment_home_screen"
         android:name="com.doberman.it.stuffix.ui.homeScreen.rootFragment.HomeScreenRootFragment"
-        android:label="@string/home_nav_title_home"
-        tools:layout="@layout/fragment_homescreen_root" />
+        android:label="@string/root_nav_title_home"
+        tools:layout="@layout/fragment_homescreen_root" >
+        <action
+            android:id="@+id/action_navigation_items_to_addItemFragment"
+            app:destination="@id/navigation_fragment_add_item" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_fragment_add_item"
+        android:name="com.doberman.it.stuffix.ui.add.item.AddItemFragment"
+        android:label="@string/root_nav_title_add_item"
+        tools:layout="@layout/add_item_fragment" />
 
 </navigation>

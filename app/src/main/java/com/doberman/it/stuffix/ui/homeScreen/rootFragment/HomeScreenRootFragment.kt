@@ -11,7 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.doberman.it.stuffix.databinding.FragmentHomescreenRootBinding
 
 class HomeScreenRootFragment : Fragment() {
-    lateinit var navController: NavController
+    lateinit var homeNavController: NavController
     private lateinit var dataBinding: FragmentHomescreenRootBinding
 
     override fun onCreateView(
@@ -25,7 +25,7 @@ class HomeScreenRootFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         val navHost = dataBinding.homeNavHostFragment
-        navController = Navigation.findNavController(navHost)
-        dataBinding.bottomNav.setupWithNavController(navController)
+        homeNavController = Navigation.findNavController(navHost)
+        dataBinding.bottomNav.setupWithNavController(homeNavController)
     }
 }
