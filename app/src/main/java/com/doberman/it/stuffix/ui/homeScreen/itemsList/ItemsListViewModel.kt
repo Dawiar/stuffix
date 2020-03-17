@@ -36,6 +36,4 @@ class ItemsListViewModel(
             items?.let { _items = it }
         }
     }
-
-
 }
