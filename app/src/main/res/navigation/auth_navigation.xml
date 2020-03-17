@@ -3,12 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/auth_navigation_graph"
-    app:startDestination="@id/navigation_fragment_sign_up">
+    app:startDestination="@id/navigation_fragment_sign_in">
+
+    <fragment
+        android:id="@+id/navigation_fragment_sign_in"
+        android:name="com.doberman.it.stuffix.ui.auth.signIn.SignInFragment"
+        android:label="@string/auth_nav_title_sign_in"
+        tools:layout="@layout/fragment_sign_in" />
 
     <fragment
         android:id="@+id/navigation_fragment_sign_up"
         android:name="com.doberman.it.stuffix.ui.auth.signUp.SignUpFragment"
-        android:label="@string/root_nav_title_sign_up"
+        android:label="@string/auth_nav_title_sign_up"
         tools:layout="@layout/fragment_sign_up" />
 
 </navigation>

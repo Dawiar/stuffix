@@ -23,4 +23,11 @@
         android:label="@string/root_nav_title_add_item"
         tools:layout="@layout/add_item_fragment" />
 
+    <action
+        android:id="@+id/action_global_navigation_fragment_home_screen"
+        app:destination="@id/navigation_fragment_home_screen"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/root_navigation_graph"
+        app:popUpToInclusive="true"/>
+
 </navigation>

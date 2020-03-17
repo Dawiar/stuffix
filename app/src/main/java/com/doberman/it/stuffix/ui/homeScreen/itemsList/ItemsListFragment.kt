@@ -25,6 +25,7 @@ class ItemsListFragment : Fragment() {
 
     private val viewModel: ItemsListViewModel by viewModels {
         object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
                 ItemsListViewModel(com.doberman.it.stuffix.common.Application.repositories.itemsList()) as T
         }
@@ -38,7 +39,7 @@ class ItemsListFragment : Fragment() {
         dataBinding.itemsListRecyclerView.layoutManager = LinearLayoutManager(context)
         adapter = ItemsListRecyclerViewAdapter()
         dataBinding.itemsListRecyclerView.adapter = adapter
-        viewModel.items.observe(viewLifecycleOwner, Observer<List<Item>> { itemsList ->
+        viewModel.items.observe(viewLifecycleOwner, Observer { itemsList ->
             adapter.setItems(itemsList)
         })
 
