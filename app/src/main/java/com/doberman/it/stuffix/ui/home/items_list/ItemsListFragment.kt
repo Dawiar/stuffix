@@ -30,6 +30,8 @@ class ItemsListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        dataBinding.lifecycleOwner = viewLifecycleOwner
+
         dataBinding.itemsListRecyclerView.layoutManager = LinearLayoutManager(context)
         adapter = ItemsListRecyclerViewAdapter()
         dataBinding.itemsListRecyclerView.adapter = adapter
