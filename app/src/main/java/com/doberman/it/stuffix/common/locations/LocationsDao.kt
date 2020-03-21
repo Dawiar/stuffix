@@ -12,7 +12,7 @@ abstract class LocationsDao {
 
     @Entity
     class LocationsModel(
-        @PrimaryKey override val id: Long,
+        @PrimaryKey (autoGenerate = true) override val id: Long = 0,
         override val title: String,
         override val description: String,
         override val address: String
