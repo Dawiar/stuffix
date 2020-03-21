@@ -1,6 +1,5 @@
 package com.doberman.it.stuffix.ui.auth.signIn
 
-import android.R.attr
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -59,6 +58,7 @@ class SignInFragment : Fragment() {
 
         dataBinding.viewModel = viewModel
         dataBinding.lifecycleOwner = viewLifecycleOwner
+        dataBinding.fragment = this
 
         viewModel.signInSuccessful.observe(viewLifecycleOwner, Observer { signInSuccessful ->
             if (signInSuccessful) {
@@ -98,5 +98,11 @@ class SignInFragment : Fragment() {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             viewModel.handleSignInResult(task)
         }
+    }
+
+    public fun onNavigateToSignIn() {
+        val action =
+            SignInFragmentDirections.actionNavigationFragmentSignInToNavigationFragmentSignUp()
+        rootNavController?.navigate(action)
     }
 }

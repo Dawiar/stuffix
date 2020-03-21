@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import
             alias="viewUtil"
             type="com.doberman.it.stuffix.ui.auth.signIn.SignInViewUtil" />
@@ -12,6 +11,9 @@
         <variable
             name="viewModel"
             type="com.doberman.it.stuffix.ui.auth.signIn.SignInViewModel" />
+        <variable
+            name="fragment"
+            type="com.doberman.it.stuffix.ui.auth.signIn.SignInFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -131,7 +133,8 @@
             android:text="@string/text_register"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{ _ -> fragment.onNavigateToSignIn() }"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

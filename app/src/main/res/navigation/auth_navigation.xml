@@ -9,12 +9,20 @@
         android:id="@+id/navigation_fragment_sign_in"
         android:name="com.doberman.it.stuffix.ui.auth.signIn.SignInFragment"
         android:label="@string/auth_nav_title_sign_in"
-        tools:layout="@layout/fragment_sign_in" />
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_navigation_fragment_sign_in_to_navigation_fragment_sign_up"
+            app:destination="@id/navigation_fragment_sign_up" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_fragment_sign_up"
         android:name="com.doberman.it.stuffix.ui.auth.signUp.SignUpFragment"
         android:label="@string/auth_nav_title_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_navigation_fragment_sign_up_to_navigation_fragment_sign_in"
+            app:destination="@id/navigation_fragment_sign_in" />
+    </fragment>
 
 </navigation>
