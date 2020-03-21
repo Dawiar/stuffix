@@ -44,7 +44,6 @@ class SignInFragment : Fragment() {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireActivity().applicationContext, gso)
-        googleSignInClient.signOut()
     }
 
     override fun onCreateView(

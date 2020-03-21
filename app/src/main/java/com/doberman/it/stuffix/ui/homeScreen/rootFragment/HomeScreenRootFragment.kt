@@ -24,8 +24,5 @@ class HomeScreenRootFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val navHost = dataBinding.homeNavHostFragment
-        homeNavController = Navigation.findNavController(navHost)
-        dataBinding.bottomNav.setupWithNavController(homeNavController)
     }
 }
