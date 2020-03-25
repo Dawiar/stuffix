@@ -12,7 +12,7 @@ abstract class ItemsDao {
 
     @Entity
     class ItemsModel(
-        @PrimaryKey override val id: Long,
+        @PrimaryKey(autoGenerate = true) override val id: Long,
         override val title: String,
         override val description: String,
         override val locationId: Long,
