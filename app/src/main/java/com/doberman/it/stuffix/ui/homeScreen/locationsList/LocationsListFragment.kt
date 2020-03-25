@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.doberman.it.stuffix.common.Application
 import com.doberman.it.stuffix.common.locations.LocationModel
 import com.doberman.it.stuffix.databinding.FragmentLocationsListBinding
-import com.doberman.it.stuffix.ui.home.items_list.ItemsListFragmentDirections
+import com.doberman.it.stuffix.ui.homeScreen.itemsList.ItemsListFragmentDirections
 
 class LocationsListFragment : Fragment() {
 
