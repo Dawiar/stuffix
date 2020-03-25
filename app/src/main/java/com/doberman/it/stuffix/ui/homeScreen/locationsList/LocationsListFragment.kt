@@ -9,10 +9,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doberman.it.stuffix.common.Application
 import com.doberman.it.stuffix.common.locations.LocationModel
 import com.doberman.it.stuffix.databinding.FragmentLocationsListBinding
+import com.doberman.it.stuffix.ui.home.items_list.ItemsListFragmentDirections
 
 class LocationsListFragment : Fragment() {
 
@@ -51,7 +53,8 @@ class LocationsListFragment : Fragment() {
 
 
         dataBinding.locationsListFabAdd.setOnClickListener {
-
+            val action = LocationsListFragmentDirections.actionNavigationLocationsToAddLocationFragment()
+            this.findNavController().navigate(action)
         }
     }
 
