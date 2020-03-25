@@ -59,9 +59,4 @@ class LocationsListFragment : Fragment() {
 
     }
 
-    companion object {
-        fun newInstance(): LocationsListFragment {
-            return LocationsListFragment()
-        }
-    }
 }
