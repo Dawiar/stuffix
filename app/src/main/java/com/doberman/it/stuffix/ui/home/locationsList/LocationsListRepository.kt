@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.homeScreen.locationsList
+package com.doberman.it.stuffix.ui.home.locationsList
 
 import com.doberman.it.stuffix.common.locations.LocationModel
 

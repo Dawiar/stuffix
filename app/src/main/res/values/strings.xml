@@ -20,4 +20,6 @@
     <string name="text_password">Password</string>
     <string name="text_sign_out">Sign Out</string>
     <string name="text_settings">Settings</string>
+    <string name="add_item_fab_content_description">Add item</string>
+    <string name="add_location_fab_content_description">Add location</string>
 </resources>

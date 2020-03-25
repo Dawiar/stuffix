@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.homeScreen.travelsList
+package com.doberman.it.stuffix.ui.home.travelsList
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.homeScreen.locationsList
+package com.doberman.it.stuffix.ui.home.locationsList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,12 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.doberman.it.stuffix.common.Application
 import com.doberman.it.stuffix.common.locations.LocationModel
 import com.doberman.it.stuffix.databinding.FragmentLocationsListBinding
-import com.doberman.it.stuffix.ui.homeScreen.itemsList.ItemsListFragmentDirections
 
 class LocationsListFragment : Fragment() {
 
     private val viewModel: LocationsListViewModel by viewModels {
         object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
                 LocationsListViewModel(Application.repositories.locationsList()) as T
         }

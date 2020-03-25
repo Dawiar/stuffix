@@ -1,9 +1,9 @@
 package com.doberman.it.stuffix.common
 
-import com.doberman.it.stuffix.ui.homeScreen.itemsList.ItemsListRepository
-import com.doberman.it.stuffix.ui.homeScreen.itemsList.ItemsListRepositoryImpl
-import com.doberman.it.stuffix.ui.homeScreen.locationsList.LocationsListRepository
-import com.doberman.it.stuffix.ui.homeScreen.locationsList.LocationsListRepositoryImpl
+import com.doberman.it.stuffix.ui.home.itemsList.ItemsListRepository
+import com.doberman.it.stuffix.ui.home.itemsList.ItemsListRepositoryImpl
+import com.doberman.it.stuffix.ui.home.locationsList.LocationsListRepository
+import com.doberman.it.stuffix.ui.home.locationsList.LocationsListRepositoryImpl
 import dagger.Module
 import dagger.Provides
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.doberman.it.stuffix.common.locations.LocationsDao
-import com.doberman.it.stuffix.ui.homeScreen.locationsList.LocationsListRepository
+import com.doberman.it.stuffix.ui.home.locationsList.LocationsListRepository
 import kotlinx.coroutines.launch
 
 class AddLocationViewModel(

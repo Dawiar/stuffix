@@ -1,21 +1,21 @@
-package com.doberman.it.stuffix.ui.homeScreen.itemsList
+package com.doberman.it.stuffix.ui.home.locationsList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.doberman.it.stuffix.common.items.Item
+import com.doberman.it.stuffix.common.locations.LocationModel
 import kotlinx.coroutines.launch
 
-class ItemsListViewModel(
-    private val repository: ItemsListRepository
+class LocationsListViewModel(
+    private val repository: LocationsListRepository
 ) : ViewModel() {
-    private var _items: List<Item>? = null
+    private var _locations: List<LocationModel>? = null
         set(value) {
             field = value
-            (items as MutableLiveData).postValue(value)
+            (locations as MutableLiveData).postValue(value)
         }
-    val items: LiveData<List<Item>> = MutableLiveData()
+    val locations: LiveData<List<LocationModel>> = MutableLiveData()
 
     private var _isLoading = true
         set(value) {
@@ -26,14 +26,16 @@ class ItemsListViewModel(
 
     init {
         viewModelScope.launch {
-            val items: List<Item>? = try {
-                repository.getItemsList()
+            val locations: List<LocationModel>? = try {
+                repository.getLocationsList()
             } catch (t: Throwable) {
                 print(t)
                 null
             }
             _isLoading = false
-            items?.let { _items = it }
+            locations?.let { _locations = it }
         }
     }
+
+
 }

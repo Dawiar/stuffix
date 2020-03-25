@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/navigation_fragment_home_screen"
-        android:name="com.doberman.it.stuffix.ui.homeScreen.rootFragment.HomeScreenRootFragment"
+        android:name="com.doberman.it.stuffix.ui.home.rootFragment.HomeScreenRootFragment"
         android:label="@string/root_nav_title_home"
         tools:layout="@layout/fragment_homescreen_root" >
         <action
@@ -19,12 +19,12 @@
 
     <fragment
         android:id="@+id/navigation_fragment_travels"
-        android:name="com.doberman.it.stuffix.ui.homeScreen.travelsList.TravelsListFragment"
+        android:name="com.doberman.it.stuffix.ui.home.travelsList.TravelsListFragment"
         android:label="@string/home_nav_title_travels"
         tools:layout="@layout/fragment_travels_list" />
     <fragment
         android:id="@+id/navigation_fragment_items"
-        android:name="com.doberman.it.stuffix.ui.homeScreen.itemsList.ItemsListFragment"
+        android:name="com.doberman.it.stuffix.ui.home.itemsList.ItemsListFragment"
         android:label="@string/home_nav_title_items"
         tools:layout="@layout/fragment_items_list">
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_fragment_locations"
-        android:name="com.doberman.it.stuffix.ui.homeScreen.locationsList.LocationsListFragment"
+        android:name="com.doberman.it.stuffix.ui.home.locationsList.LocationsListFragment"
         android:label="@string/home_nav_title_locations"
         tools:layout="@layout/fragment_locations_list">
         <action
@@ -45,7 +45,11 @@
         android:id="@+id/navigation_fragment_add_item"
         android:name="com.doberman.it.stuffix.ui.add.item.AddItemFragment"
         android:label="@string/root_nav_title_add_item"
-        tools:layout="@layout/add_item_fragment" />
+        tools:layout="@layout/fragment_add_item" >
+        <action
+            android:id="@+id/action_addItemFragment_to_navigation_items"
+            app:destination="@id/navigation_fragment_items" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_fragment_add_location"
         android:name="com.doberman.it.stuffix.ui.add.location.AddLocationFragment"

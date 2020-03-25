@@ -10,14 +10,14 @@
 
         <variable
             name="viewModel"
-            type="com.doberman.it.stuffix.ui.homeScreen.itemsList.ItemsListViewModel" />
+            type="com.doberman.it.stuffix.ui.home.itemsList.ItemsListViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.homeScreen.travelsList.TravelsListFragment">
+        tools:context=".ui.home.travelsList.TravelsListFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/itemsList_recyclerView"
@@ -36,7 +36,8 @@
             android:src="@drawable/plus"
             app:backgroundTint="@color/fab"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/add_item_fab_content_description" />
 
         <ProgressBar
             android:id="@+id/itemsList_progressBar"

@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.homeScreen.itemsList
+package com.doberman.it.stuffix.ui.home.itemsList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +13,8 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doberman.it.stuffix.R
-import com.doberman.it.stuffix.common.items.Item
 import com.doberman.it.stuffix.databinding.FragmentItemsListBinding
-import com.doberman.it.stuffix.ui.homeScreen.rootFragment.HomeScreenRootFragmentDirections
+import com.doberman.it.stuffix.ui.home.rootFragment.HomeScreenRootFragmentDirections
 
 class ItemsListFragment : Fragment() {
 
