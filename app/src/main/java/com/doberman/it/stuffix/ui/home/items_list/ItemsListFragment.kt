@@ -53,7 +53,4 @@ class ItemsListFragment : Fragment() {
         return dataBinding.root
     }
 
-    companion object {
-        fun newInstance() = ItemsListFragment()
-    }
 }

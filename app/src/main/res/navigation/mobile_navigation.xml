@@ -32,7 +32,11 @@
         android:id="@+id/addItemFragment"
         android:name="com.doberman.it.stuffix.ui.add.item.AddItemFragment"
         android:label="add_item_fragment"
-        tools:layout="@layout/add_item_fragment" />
+        tools:layout="@layout/add_item_fragment" >
+        <action
+            android:id="@+id/action_addItemFragment_to_navigation_items"
+            app:destination="@id/navigation_items" />
+    </fragment>
     <fragment
         android:id="@+id/addLocationFragment"
         android:name="com.doberman.it.stuffix.ui.add.location.AddLocationFragment"
