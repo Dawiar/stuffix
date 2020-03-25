@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.home.travels_list
+package com.doberman.it.stuffix.ui.home.travelsList
 
 import androidx.lifecycle.ViewModel
 

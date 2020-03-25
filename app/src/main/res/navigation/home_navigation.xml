@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation_graph"
+    app:startDestination="@+id/navigation_fragment_travels">
+
+    <fragment
+        android:id="@+id/navigation_fragment_travels"
+        android:name="com.doberman.it.stuffix.ui.home.travelsList.TravelsListFragment"
+        android:label="@string/home_nav_title_travels"
+        tools:layout="@layout/fragment_travels_list" />
+    <fragment
+        android:id="@+id/navigation_fragment_items"
+        android:name="com.doberman.it.stuffix.ui.home.itemsList.ItemsListFragment"
+        android:label="@string/home_nav_title_items"
+        tools:layout="@layout/fragment_items_list">
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_fragment_locations"
+        android:name="com.doberman.it.stuffix.ui.home.locationsList.LocationsListFragment"
+        android:label="@string/home_nav_title_locations"
+        tools:layout="@layout/fragment_locations_list"/>
+</navigation>

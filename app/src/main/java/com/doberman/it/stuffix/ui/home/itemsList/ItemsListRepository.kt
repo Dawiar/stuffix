@@ -1,4 +1,4 @@
-package com.doberman.it.stuffix.ui.home.items_list
+package com.doberman.it.stuffix.ui.home.itemsList
 
 import com.doberman.it.stuffix.common.items.Item
 

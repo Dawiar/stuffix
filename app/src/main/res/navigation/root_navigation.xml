@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_navigation_graph"
+    app:startDestination="@+id/auth_navigation_graph">
+
+    <include app:graph="@navigation/auth_navigation" />
+
+    <fragment
+        android:id="@+id/navigation_fragment_home_screen"
+        android:name="com.doberman.it.stuffix.ui.home.rootFragment.HomeScreenRootFragment"
+        android:label="@string/root_nav_title_home"
+        tools:layout="@layout/fragment_homescreen_root" >
+        <action
+            android:id="@+id/action_navigation_items_to_addItemFragment"
+            app:destination="@id/navigation_fragment_add_item" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_fragment_travels"
+        android:name="com.doberman.it.stuffix.ui.home.travelsList.TravelsListFragment"
+        android:label="@string/home_nav_title_travels"
+        tools:layout="@layout/fragment_travels_list" />
+    <fragment
+        android:id="@+id/navigation_fragment_items"
+        android:name="com.doberman.it.stuffix.ui.home.itemsList.ItemsListFragment"
+        android:label="@string/home_nav_title_items"
+        tools:layout="@layout/fragment_items_list">
+        <action
+            android:id="@+id/action_navigation_items_to_addItemFragment"
+            app:destination="@id/navigation_fragment_add_item" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_fragment_locations"
+        android:name="com.doberman.it.stuffix.ui.home.locationsList.LocationsListFragment"
+        android:label="@string/home_nav_title_locations"
+        tools:layout="@layout/fragment_locations_list">
+        <action
+            android:id="@+id/action_navigation_locations_to_addLocationFragment"
+            app:destination="@id/navigation_fragment_add_location" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_fragment_add_item"
+        android:name="com.doberman.it.stuffix.ui.add.item.AddItemFragment"
+        android:label="@string/root_nav_title_add_item"
+        tools:layout="@layout/fragment_add_item" >
+        <action
+            android:id="@+id/action_addItemFragment_to_navigation_items"
+            app:destination="@id/navigation_fragment_items" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_fragment_add_location"
+        android:name="com.doberman.it.stuffix.ui.add.location.AddLocationFragment"
+        android:label="AddLocationFragment" >
+        <action
+            android:id="@+id/action_addLocationFragment_to_navigation_locations"
+            app:destination="@id/navigation_fragment_locations" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_navigation_fragment_home_screen"
+        app:destination="@id/navigation_fragment_travels"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/root_navigation_graph"
+        app:popUpToInclusive="true"/>
+    <action
+        android:id="@+id/action_global_log_out"
+        app:destination="@id/auth_navigation_graph"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/root_navigation_graph"
+        app:popUpToInclusive="true"/>
+</navigation>

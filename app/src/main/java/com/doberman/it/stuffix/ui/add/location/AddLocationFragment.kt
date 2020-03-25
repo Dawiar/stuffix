@@ -12,8 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.doberman.it.stuffix.common.Application
 import com.doberman.it.stuffix.databinding.FragmentAddLocationBinding
-import com.doberman.it.stuffix.ui.home.items_list.ItemsListFragmentDirections
-import kotlinx.android.synthetic.main.fragment_add_location.view.*
 
 
 class AddLocationFragment : Fragment() {
