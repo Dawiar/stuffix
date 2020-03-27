@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.doberman.it.stuffix.common.Application
+import com.doberman.it.stuffix.common.util.vmNavigation.NavigationCommand
 import com.doberman.it.stuffix.databinding.FragmentAddLocationBinding
 
 
@@ -39,11 +40,10 @@ class AddLocationFragment : Fragment() {
         dataBinding.lifecycleOwner = viewLifecycleOwner
         dataBinding.viewModel = viewModel
 
-        viewModel.navigate.observe(viewLifecycleOwner, Observer {
-            if (it == true) {
-                val action =
-                    AddLocationFragmentDirections.actionAddLocationFragmentToNavigationLocations()
-                this.findNavController().navigate(action)
+        viewModel.navigationCommands.observe(viewLifecycleOwner, Observer {command ->
+            when(command){
+                is NavigationCommand.To ->
+                    findNavController().navigate(command.directions)
             }
 
         })

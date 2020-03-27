@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doberman.it.stuffix.common.Application
 import com.doberman.it.stuffix.common.locations.LocationModel
+import com.doberman.it.stuffix.common.util.vmNavigation.NavigationCommand
 import com.doberman.it.stuffix.databinding.FragmentLocationsListBinding
 
 class LocationsListFragment : Fragment() {
@@ -41,21 +42,24 @@ class LocationsListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        dataBinding.lifecycleOwner = viewLifecycleOwner
+        dataBinding.viewModel = viewModel
         dataBinding.locationsListRecyclerView.layoutManager = LinearLayoutManager(context)
         adapter = LocationsListRecyclerViewAdapter()
 
         dataBinding.locationsListRecyclerView.adapter = adapter
         viewModel.locations.observe(
             viewLifecycleOwner,
-            Observer<List<LocationModel>> { locationsList ->
+            Observer { locationsList ->
                 adapter.setLocations(locationsList)
             })
 
-
-        dataBinding.locationsListFabAdd.setOnClickListener {
-            val action = LocationsListFragmentDirections.actionNavigationLocationsToAddLocationFragment()
-            this.findNavController().navigate(action)
-        }
+        viewModel.navigationCommands.observe(viewLifecycleOwner, Observer { command ->
+            when(command){
+                is NavigationCommand.To ->
+                    findNavController().navigate(command.directions)
+            }
+        })
     }
 
 }
