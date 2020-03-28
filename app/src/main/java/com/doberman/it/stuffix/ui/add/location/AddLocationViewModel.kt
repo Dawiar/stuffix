@@ -5,22 +5,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.doberman.it.stuffix.common.locations.LocationsDao
 import com.doberman.it.stuffix.common.util.SingleHandledEvent
-import com.doberman.it.stuffix.common.util.vmNavigation.ExposesNavCommands
-import com.doberman.it.stuffix.common.util.vmNavigation.NavigationCommand
 import com.doberman.it.stuffix.ui.home.locationsList.LocationsListRepository
 import kotlinx.coroutines.launch
 
 class AddLocationViewModel(
     private val repository: LocationsListRepository
-) : ViewModel(), ExposesNavCommands {
-
+) : ViewModel() {
+    val navigation = SingleHandledEvent<(Navigation) -> Unit>()
     val title = MutableLiveData<String>()
     val address = MutableLiveData<String>()
     val description = MutableLiveData<String>()
-    override val navigationCommands: SingleHandledEvent<NavigationCommand> =
-        SingleHandledEvent()
 
     fun onProcessClick() = viewModelScope.launch {
+        navigation.value = { it.showBlocker() }
         repository.addLocation(
             LocationsDao.LocationsModel(
                 0,
@@ -29,9 +26,15 @@ class AddLocationViewModel(
                 description.value!!
             )
         )
-        navigate(AddLocationFragmentDirections.actionAddLocationFragmentToNavigationLocations())
+        navigation.value = {
+            it.hideBlocker()
+            it.navigateToLocationList()
+        }
     }
 
-
-
+    interface Navigation {
+        fun showBlocker()
+        fun hideBlocker()
+        fun navigateToLocationList()
+    }
 }
