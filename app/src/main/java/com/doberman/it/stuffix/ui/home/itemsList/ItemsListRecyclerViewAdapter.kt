@@ -15,7 +15,7 @@ class ItemsListRecyclerViewAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_locations_item, parent, false)
+            .inflate(R.layout.fragment_items_item, parent, false)
         return ItemsViewHolder(view)
     }
 
@@ -31,9 +31,9 @@ class ItemsListRecyclerViewAdapter :
     }
 
     class ItemsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title: TextView = itemView.findViewById(R.id.locationsList_item_title)
-        val description: TextView = itemView.findViewById(R.id.locationsList_item_description)
-        val address: TextView = itemView.findViewById(R.id.locationsList_item_address)
+        val title: TextView = itemView.findViewById(R.id.itemsList_item_title)
+        val description: TextView = itemView.findViewById(R.id.itemsList_item_description)
+        val address: TextView = itemView.findViewById(R.id.itemsList_item_location)
 
         fun bind(item: Item) {
             title.text = item.title

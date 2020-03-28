@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.doberman.it.stuffix.common.recyclerview.SelectableSubViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="88dp">
 
@@ -32,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:textSize="16sp"
+        android:text="@{ viewModel.locations.title }"
         app:firstBaselineToTopHeight="28dp"
         app:layout_constraintStart_toEndOf="@+id/locationsList_item_image"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +43,7 @@
         android:id="@+id/locationsList_item_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@{ viewModel.locations.description }"
         app:layout_constraintStart_toStartOf="@+id/locationsList_item_title"
         app:layout_constraintTop_toBottomOf="@+id/locationsList_item_title"
         tools:text="Description" />
@@ -49,8 +52,22 @@
         android:id="@+id/locationsList_item_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@{ viewModel.locations.address }"
         app:layout_constraintStart_toStartOf="@+id/locationsList_item_title"
         app:layout_constraintTop_toBottomOf="@+id/locationsList_item_description"
         tools:text="Address" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="25dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
+        android:text="CheckBox"
+        android:visibility="@{ viewModel.selected ? View.VISIBLE : View.INVISIBLE }"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

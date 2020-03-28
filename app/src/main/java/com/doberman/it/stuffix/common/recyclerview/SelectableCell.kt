@@ -9,13 +9,12 @@ class SelectableCell(val viewModel: SelectableSubViewModel) :
     override val layoutId: Int
         get() = R.layout.fragment_locations_item
 
-    override fun bind(binding: FragmentLocationsItemBinding, lifecycleOwner: LifecycleOwner) {
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = lifecycleOwner
-    }
-
     override fun unbind(binding: FragmentLocationsItemBinding) {
         binding.unbind()
     }
 
+    override fun bind(binding: FragmentLocationsItemBinding, lifecycleOwner: LifecycleOwner) {
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = lifecycleOwner
+    }
 }

@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.doberman.it.stuffix.common.locations.LocationModel
+import com.doberman.it.stuffix.common.recyclerview.SelectableCell
+import com.doberman.it.stuffix.common.recyclerview.SelectableSubViewModel
 import kotlinx.coroutines.launch
 
 class LocationsListViewModel(
@@ -16,6 +18,14 @@ class LocationsListViewModel(
             (locations as MutableLiveData).postValue(value)
         }
     val locations: LiveData<List<LocationModel>> = MutableLiveData()
+
+    private var _selectableCells: List<SelectableCell>? = null
+        set(value) {
+            field = value
+            (selectableCells as MutableLiveData).postValue(value)
+        }
+
+    val selectableCells: LiveData<List<SelectableCell>> = MutableLiveData()
 
     private var _isLoading = true
         set(value) {
@@ -32,8 +42,8 @@ class LocationsListViewModel(
                 print(t)
                 null
             }
+            _selectableCells = locations?.map { SelectableCell(SelectableSubViewModel(it)) }
             _isLoading = false
-            locations?.let { _locations = it }
         }
     }
 

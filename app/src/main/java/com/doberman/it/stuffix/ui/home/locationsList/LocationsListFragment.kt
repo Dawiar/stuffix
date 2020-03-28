@@ -1,6 +1,7 @@
 package com.doberman.it.stuffix.ui.home.locationsList
 
 import android.os.Bundle
+import android.renderscript.ScriptGroup
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doberman.it.stuffix.common.Application
 import com.doberman.it.stuffix.common.locations.LocationModel
+import com.doberman.it.stuffix.common.recyclerview.BindingRecyclerAdapter
 import com.doberman.it.stuffix.databinding.FragmentLocationsListBinding
 
 class LocationsListFragment : Fragment() {
@@ -27,7 +29,7 @@ class LocationsListFragment : Fragment() {
 
     private lateinit var dataBinding: FragmentLocationsListBinding
 
-    private lateinit var adapter: LocationsListRecyclerViewAdapter
+    private lateinit var adapter: BindingRecyclerAdapter
 
 
     override fun onCreateView(
@@ -38,24 +40,25 @@ class LocationsListFragment : Fragment() {
         return dataBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        dataBinding.lifecycleOwner = viewLifecycleOwner
         dataBinding.locationsListRecyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = LocationsListRecyclerViewAdapter()
+        adapter = BindingRecyclerAdapter(viewLifecycleOwner)
 
         dataBinding.locationsListRecyclerView.adapter = adapter
-        viewModel.locations.observe(
+        viewModel.selectableCells.observe(
             viewLifecycleOwner,
-            Observer<List<LocationModel>> { locationsList ->
-                adapter.setLocations(locationsList)
+            Observer { cells ->
+                adapter.setCell(cells)
             })
 
 
         dataBinding.locationsListFabAdd.setOnClickListener {
-            val action = LocationsListFragmentDirections.actionNavigationLocationsToAddLocationFragment()
+            val action =
+                LocationsListFragmentDirections.actionNavigationLocationsToAddLocationFragment()
             this.findNavController().navigate(action)
         }
     }
-
 }
