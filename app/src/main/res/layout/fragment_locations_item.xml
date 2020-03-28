@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 
-
-
+    <data>
+        <variable
+            name="viewModel"
+            type="com.doberman.it.stuffix.common.recyclerview.SelectableSubViewModel" />
+    </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -49,3 +53,4 @@
         app:layout_constraintTop_toBottomOf="@+id/locationsList_item_description"
         tools:text="Address" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
