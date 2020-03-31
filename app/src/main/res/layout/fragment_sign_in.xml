@@ -11,9 +11,6 @@
         <variable
             name="viewModel"
             type="com.doberman.it.stuffix.ui.auth.signIn.SignInViewModel" />
-        <variable
-            name="fragment"
-            type="com.doberman.it.stuffix.ui.auth.signIn.SignInFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -134,7 +131,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{ _ -> fragment.onNavigateToSignIn() }"/>
+            android:onClick="@{ _ -> viewModel.handleNavigateToSignIn() }"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,10 +11,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doberman.it.stuffix.R
+import com.doberman.it.stuffix.common.util.vmNavigation.NavigationCommand
 import com.doberman.it.stuffix.databinding.FragmentItemsListBinding
-import com.doberman.it.stuffix.ui.home.rootFragment.HomeScreenRootFragmentDirections
 
 class ItemsListFragment : Fragment() {
 
@@ -36,7 +37,7 @@ class ItemsListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         dataBinding.lifecycleOwner = viewLifecycleOwner
-
+        dataBinding.viewModel = viewModel
         dataBinding.itemsListRecyclerView.layoutManager = LinearLayoutManager(context)
         adapter = ItemsListRecyclerViewAdapter()
         dataBinding.itemsListRecyclerView.adapter = adapter
@@ -44,10 +45,13 @@ class ItemsListFragment : Fragment() {
             adapter.setItems(itemsList)
         })
 
-        dataBinding.itemsListFabAdd.setOnClickListener {
-            val action = HomeScreenRootFragmentDirections.actionNavigationItemsToAddItemFragment()
-            rootNavController?.navigate(action)
-        }
+        viewModel.navigationCommands.observe(viewLifecycleOwner, Observer { command ->
+            when (command) {
+                is NavigationCommand.To ->
+                    findNavController().navigate(command.directions)
+            }
+        })
+
     }
 
     override fun onCreateView(

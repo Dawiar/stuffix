@@ -6,15 +6,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.doberman.it.stuffix.RootNavigationGraphDirections
+import com.doberman.it.stuffix.common.util.vmNavigation.ExposesNavCommands
+import com.doberman.it.stuffix.common.util.vmNavigation.NavigationCommand
+import com.doberman.it.stuffix.common.util.SingleHandledEvent
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import kotlinx.coroutines.launch
 
 
-class SignInViewModel : ViewModel() {
+class SignInViewModel : ViewModel(), ExposesNavCommands {
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
+    override val navigationCommands: SingleHandledEvent<NavigationCommand> =
+        SingleHandledEvent()
 
     private var _isLoading = true
         set(value) {
@@ -23,16 +29,9 @@ class SignInViewModel : ViewModel() {
         }
     val isLoading: LiveData<Boolean> = MutableLiveData(_isLoading)
 
-    private var _signInSuccessful = false
-        set(value) {
-            field = value
-            (signInSuccessful as MutableLiveData).postValue(value)
-        }
-    val signInSuccessful: LiveData<Boolean> = MutableLiveData(_signInSuccessful)
-
     // TODO add backend interaction here
     fun onSignInSubmit() = viewModelScope.launch {
-        _signInSuccessful = true
+        navigate(RootNavigationGraphDirections.actionGlobalNavigationFragmentHomeScreen())
     }
 
     fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
@@ -49,7 +48,12 @@ class SignInViewModel : ViewModel() {
 
     fun handleGoogleAccountExistence(account: GoogleSignInAccount?) {
         if (account != null) {
-            _signInSuccessful = true
+            navigate(RootNavigationGraphDirections.actionGlobalNavigationFragmentHomeScreen())
         }
     }
+
+    fun handleNavigateToSignIn() {
+        navigate(SignInFragmentDirections.actionNavigationFragmentSignInToNavigationFragmentSignUp())
+    }
+
 }

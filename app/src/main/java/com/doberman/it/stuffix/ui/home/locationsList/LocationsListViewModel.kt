@@ -5,17 +5,23 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.doberman.it.stuffix.common.locations.LocationModel
+import com.doberman.it.stuffix.common.util.SingleHandledEvent
+import com.doberman.it.stuffix.common.util.vmNavigation.ExposesNavCommands
+import com.doberman.it.stuffix.common.util.vmNavigation.NavigationCommand
 import kotlinx.coroutines.launch
 
 class LocationsListViewModel(
     private val repository: LocationsListRepository
-) : ViewModel() {
+) : ViewModel(), ExposesNavCommands {
     private var _locations: List<LocationModel>? = null
         set(value) {
             field = value
             (locations as MutableLiveData).postValue(value)
         }
     val locations: LiveData<List<LocationModel>> = MutableLiveData()
+
+    override val navigationCommands: SingleHandledEvent<NavigationCommand> =
+        SingleHandledEvent()
 
     private var _isLoading = true
         set(value) {
@@ -37,5 +43,5 @@ class LocationsListViewModel(
         }
     }
 
-
+    fun onProcessClick() = navigate(LocationsListFragmentDirections.actionNavigationLocationsToAddLocationFragment())
 }

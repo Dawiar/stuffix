@@ -34,6 +34,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/fab_margin_right"
             android:layout_marginBottom="@dimen/fab_margin_bottom"
+            android:onClick="@{ _ -> viewModel.onProcessClick() }"
             android:src="@drawable/plus"
             app:backgroundTint="@color/fab"
             app:layout_constraintBottom_toBottomOf="parent"
