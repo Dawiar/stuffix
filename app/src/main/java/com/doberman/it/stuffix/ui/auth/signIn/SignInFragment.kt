@@ -14,8 +14,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.doberman.it.stuffix.R
-import com.doberman.it.stuffix.RootNavigationGraphDirections
 import com.doberman.it.stuffix.common.Constants
+import com.doberman.it.stuffix.common.util.vmNavigation.NavigationCommand
 import com.doberman.it.stuffix.databinding.FragmentSignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -58,15 +58,15 @@ class SignInFragment : Fragment() {
 
         dataBinding.viewModel = viewModel
         dataBinding.lifecycleOwner = viewLifecycleOwner
-        dataBinding.fragment = this
 
-        viewModel.signInSuccessful.observe(viewLifecycleOwner, Observer { signInSuccessful ->
-            if (signInSuccessful) {
-                val action =
-                    RootNavigationGraphDirections.actionGlobalNavigationFragmentHomeScreen()
-                rootNavController?.navigate(action)
+
+        viewModel.navigationCommands.observe( viewLifecycleOwner, Observer {command ->
+            when (command) {
+                is NavigationCommand.To ->
+                    rootNavController?.navigate(command.directions)
             }
         })
+
         dataBinding.signInGoogleAuthButton.setSize(SignInButton.SIZE_STANDARD)
         dataBinding.signInGoogleAuthButton.setOnClickListener {
             val signInIntent: Intent = googleSignInClient.signInIntent
@@ -100,9 +100,5 @@ class SignInFragment : Fragment() {
         }
     }
 
-    public fun onNavigateToSignIn() {
-        val action =
-            SignInFragmentDirections.actionNavigationFragmentSignInToNavigationFragmentSignUp()
-        rootNavController?.navigate(action)
-    }
+
 }

@@ -35,6 +35,7 @@
             android:layout_marginBottom="@dimen/fab_margin_bottom"
             android:src="@drawable/plus"
             app:backgroundTint="@color/fab"
+            android:onClick="@{ _ -> viewModel.onProcessClick()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/add_item_fab_content_description" />

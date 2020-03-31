@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.doberman.it.stuffix.common.items.ItemsDao
 import com.doberman.it.stuffix.common.locations.LocationModel
+import com.doberman.it.stuffix.common.util.SingleHandledEvent
+import com.doberman.it.stuffix.common.util.vmNavigation.ExposesNavCommands
+import com.doberman.it.stuffix.common.util.vmNavigation.NavigationCommand
 import com.doberman.it.stuffix.ui.home.itemsList.ItemsListRepository
 import com.doberman.it.stuffix.ui.home.locationsList.LocationsListRepository
 import kotlinx.coroutines.launch
@@ -13,7 +16,7 @@ import kotlinx.coroutines.launch
 class AddItemViewModel(
     private val itemsRepository: ItemsListRepository,
     private val locationsRepository: LocationsListRepository
-) : ViewModel() {
+) : ViewModel(), ExposesNavCommands {
 
     private var _locations: List<LocationModel>? = null
         set(value) {
@@ -29,16 +32,12 @@ class AddItemViewModel(
         }
     val isLoading: LiveData<Boolean> = MutableLiveData(_isLoading)
 
+    override val navigationCommands: SingleHandledEvent<NavigationCommand> =
+        SingleHandledEvent()
+
     var selectedLocation: LocationModel? = null
     val title = MutableLiveData<String>()
     val description = MutableLiveData<String>()
-
-    private var _navigate = false
-        set(value) {
-            field = value
-            (navigate as MutableLiveData).postValue(value)
-        }
-    val navigate: LiveData<Boolean> = MutableLiveData(false)
 
 
     init {
@@ -73,7 +72,8 @@ class AddItemViewModel(
                 selectedLocation?.address!!
             )
         )
-        _navigate = true
+        navigate(AddItemFragmentDirections.actionAddItemFragmentToNavigationItems())
     }
+
 
 }
