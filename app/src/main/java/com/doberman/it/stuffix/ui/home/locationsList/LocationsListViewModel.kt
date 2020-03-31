@@ -19,6 +19,8 @@ class LocationsListViewModel(
         }
     val locations: LiveData<List<LocationModel>> = MutableLiveData()
 
+    val isMultipleSelection =
+
     private var _selectableCells: List<SelectableCell>? = null
         set(value) {
             field = value
@@ -42,6 +44,7 @@ class LocationsListViewModel(
                 print(t)
                 null
             }
+            locations.also { _locations = it }
             _selectableCells = locations?.map { SelectableCell(SelectableSubViewModel(it)) }
             _isLoading = false
         }
