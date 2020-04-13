@@ -6,22 +6,31 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
-import com.doberman.it.stuffix.databinding.FragmentLocationsItemBindingImpl
 
 class BindingRecyclerAdapter(
-    val lifecycleOwner: LifecycleOwner
+    private val lifecycleOwner: LifecycleOwner
 ) : RecyclerView.Adapter<BindingRecyclerAdapter.BindableViewHolder>() {
 
     class BindableViewHolder(
         val binding: ViewDataBinding
     ) : RecyclerView.ViewHolder(binding.root)
 
-     var cells = listOf<SelectableCell>()
+    var cells = listOf<BindableCell<ViewDataBinding>>()
 
-    fun setCell(cells: List<SelectableCell>){
+
+    fun setData(cells: List<BindableCell<ViewDataBinding>>) {
         this.cells = cells
-        notifyDataSetChanged()
     }
+
+    fun getData(): List<BindableCell<ViewDataBinding>> {
+        return cells
+    }
+
+/*
+    override fun onViewDetachedFromWindow(holder: BindableViewHolder) {
+        cells[holder.adapterPosition].unbind(holder.binding)
+    }
+*/
 
     override fun getItemViewType(position: Int): Int = cells[position].layoutId
 
@@ -40,6 +49,8 @@ class BindingRecyclerAdapter(
     override fun getItemCount(): Int = cells.size
 
     override fun onBindViewHolder(holder: BindableViewHolder, position: Int) {
-        cells[position].bind( (holder.binding as FragmentLocationsItemBindingImpl) , lifecycleOwner)
+        holder.binding.lifecycleOwner = lifecycleOwner
+
+        (cells[position]).bind(holder.binding, lifecycleOwner)
     }
 }

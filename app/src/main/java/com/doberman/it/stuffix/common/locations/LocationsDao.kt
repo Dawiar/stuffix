@@ -10,6 +10,9 @@ abstract class LocationsDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     abstract suspend fun add(location: LocationsModel)
 
+    @Query("DELETE FROM LocationsModel WHERE id in (:locationIDs)")
+    abstract suspend fun delete(locationIDs: List<Long>)
+
     @Entity
     class LocationsModel(
         @PrimaryKey (autoGenerate = true) override val id: Long = 0,

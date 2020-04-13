@@ -6,4 +6,6 @@ interface LocationsListRepository {
     suspend fun getLocationsList(): List<LocationModel>
 
     suspend fun addLocation(location: LocationModel)
+
+    suspend fun deleteLocation(locationIDs: List<Long>)
 }
