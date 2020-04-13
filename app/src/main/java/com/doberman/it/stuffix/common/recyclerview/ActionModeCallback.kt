@@ -35,5 +35,6 @@ class ActionModeCallback(
 
     override fun onDestroyActionMode(mode: ActionMode?) {
         viewModel.disableMultiselection()
+        cells.filter { it.viewModel.isSelected.value == true }.forEach { it.viewModel.notSelected() }
     }
 }

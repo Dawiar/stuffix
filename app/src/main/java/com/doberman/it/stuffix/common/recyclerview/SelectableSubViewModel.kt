@@ -32,6 +32,10 @@ class SelectableSubViewModel(
         return true
     }
 
+    fun notSelected(){
+        _isSelected = false
+    }
+
     fun invertSelected() {
         _isSelected = !_isSelected
         parentViewModel.updateHeader()
