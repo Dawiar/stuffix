@@ -19,4 +19,8 @@ class LocationsListRepositoryImpl(
             dao.all()
         }
     }
+
+    override suspend fun deleteLocation(locationIDs: List<Long>) =
+            dao.delete(locationIDs)
+
 }

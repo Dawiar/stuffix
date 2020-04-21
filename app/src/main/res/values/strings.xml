@@ -24,4 +24,5 @@
     <string name="add_location_fab_content_description">Add location</string>
     <string name="text_already_have_an_account">Already have an account?</string>
     <string name="text_login">Login</string>
+    <string name="menu_item_delete">delete item</string>
 </resources>
